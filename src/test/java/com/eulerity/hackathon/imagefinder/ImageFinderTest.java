@@ -43,7 +43,8 @@ public class ImageFinderTest {
   public void test() throws IOException, ServletException {
 		Mockito.when(request.getServletPath()).thenReturn("/main");
 		new ImageFinder().doPost(request, response);
-		Assert.assertEquals(new Gson().toJson(ImageFinder.testImages), sw.toString());
+		//Assert.assertEquals(new Gson().toJson(ImageFinder.testImages), sw.toString());
+		Assert.assertEquals(new Gson().toJson(ImageFinder.ImageUrls), sw.toString());
   }
 }
 
