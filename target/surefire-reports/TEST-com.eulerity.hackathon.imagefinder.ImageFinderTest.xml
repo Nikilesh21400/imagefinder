@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.eulerity.hackathon.imagefinder.ImageFinderTest" time="0.38" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.eulerity.hackathon.imagefinder.ImageFinderTest" time="0.402" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="sun.desktop" value="windows"/>
     <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
@@ -17,7 +17,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="IN"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-11.0.15\bin"/>
-    <property name="sun.java.command" value="C:\Users\Nikilesh\AppData\Local\Temp\surefire6713689254375145647\surefirebooter9938502894139573057.jar C:\Users\Nikilesh\AppData\Local\Temp\surefire6713689254375145647 2024-04-08T22-26-44_177-jvmRun1 surefire17755622584842632699tmp surefire_07770912588725279523tmp"/>
+    <property name="sun.java.command" value="C:\Users\Nikilesh\AppData\Local\Temp\surefire8674528179606044862\surefirebooter12584889980671066887.jar C:\Users\Nikilesh\AppData\Local\Temp\surefire8674528179606044862 2024-04-12T05-21-37_106-jvmRun1 surefire8061307292485955113tmp surefire_013924756854886026023tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\VS Code\imagefinder\target\test-classes;C:\VS Code\imagefinder\target\imagefinder-0.1.0-SNAPSHOT\WEB-INF\classes;C:\Users\Nikilesh\.m2\repository\javax\servlet\javax.servlet-api\4.0.1\javax.servlet-api-4.0.1.jar;C:\Users\Nikilesh\.m2\repository\javax\servlet\jsp\javax.servlet.jsp-api\2.3.3\javax.servlet.jsp-api-2.3.3.jar;C:\Users\Nikilesh\.m2\repository\jstl\jstl\1.2\jstl-1.2.jar;C:\Users\Nikilesh\.m2\repository\org\jsoup\jsoup\1.13.1\jsoup-1.13.1.jar;C:\Users\Nikilesh\.m2\repository\com\google\code\gson\gson\2.8.5\gson-2.8.5.jar;C:\Users\Nikilesh\.m2\repository\junit\junit\4.13.2\junit-4.13.2.jar;C:\Users\Nikilesh\.m2\repository\org\hamcrest\hamcrest-core\1.3\hamcrest-core-1.3.jar;C:\Users\Nikilesh\.m2\repository\org\mockito\mockito-all\2.0.2-beta\mockito-all-2.0.2-beta.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -33,7 +33,7 @@
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
-    <property name="surefire.real.class.path" value="C:\Users\Nikilesh\AppData\Local\Temp\surefire6713689254375145647\surefirebooter9938502894139573057.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\Nikilesh\AppData\Local\Temp\surefire8674528179606044862\surefirebooter12584889980671066887.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="11.0.15+8-LTS-149"/>
@@ -60,7 +60,7 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="55.0"/>
   </properties>
-  <testcase name="test" classname="com.eulerity.hackathon.imagefinder.ImageFinderTest" time="0.305">
+  <testcase name="test" classname="com.eulerity.hackathon.imagefinder.ImageFinderTest" time="0.331">
     <system-out><![CDATA[Got request of:/main with query param:null
 ]]></system-out>
     <system-err><![CDATA[java.lang.IllegalArgumentException: Must supply a valid URL
@@ -68,8 +68,8 @@
 	at org.jsoup.helper.HttpConnection.url(HttpConnection.java:127)
 	at org.jsoup.helper.HttpConnection.connect(HttpConnection.java:70)
 	at org.jsoup.Jsoup.connect(Jsoup.java:73)
-	at com.eulerity.hackathon.imagefinder.ImageFinder.getUrls(ImageFinder.java:51)
-	at com.eulerity.hackathon.imagefinder.ImageFinder.doPost(ImageFinder.java:108)
+	at com.eulerity.hackathon.imagefinder.ImageFinder.getUrls(ImageFinder.java:58)
+	at com.eulerity.hackathon.imagefinder.ImageFinder.doPost(ImageFinder.java:134)
 	at com.eulerity.hackathon.imagefinder.ImageFinderTest.test(ImageFinderTest.java:45)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
@@ -105,8 +105,8 @@ java.lang.IllegalArgumentException: Must supply a valid URL
 	at org.jsoup.helper.HttpConnection.url(HttpConnection.java:127)
 	at org.jsoup.helper.HttpConnection.connect(HttpConnection.java:70)
 	at org.jsoup.Jsoup.connect(Jsoup.java:73)
-	at com.eulerity.hackathon.imagefinder.ImageFinder$GetImagesfromUrl.call(ImageFinder.java:81)
-	at com.eulerity.hackathon.imagefinder.ImageFinder$GetImagesfromUrl.call(ImageFinder.java:70)
+	at com.eulerity.hackathon.imagefinder.ImageFinder$GetImagesfromUrl.call(ImageFinder.java:90)
+	at com.eulerity.hackathon.imagefinder.ImageFinder$GetImagesfromUrl.call(ImageFinder.java:79)
 	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
 	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)

@@ -1,1 +1,8 @@
 Please paste your list of test URLs below:
+
+https://www.hackerrank.com
+https://www.w3schools.com
+https://github.com
+https://www.google.com
+https://www.hackerearth.com
+https://www.codechef.com

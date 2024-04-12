@@ -1,0 +1,366 @@
+:root {
+  --header-elements-margin: 0.7em;
+  --font-size: 0.85rem;
+}
+
+* {
+  font-family: Arial, Helvetica, sans-serif;
+  box-sizing: border-box;
+}
+
+body,html {
+  height: 100%;
+  margin: 0;
+  min-width: 100%;
+}
+
+h1 {
+  padding: 0;
+  margin: 0;
+}
+
+.hh{
+	line-height: 0;
+    font:42px italic bold;
+    color:rgb(212, 36, 36);
+    animation: myfirst 5s linear 2s infinite alternate;
+}
+@keyframes myfirst {
+    0%   {color:red;}
+    25%  {color:rgb(0, 183, 255);}
+    50%  {color:rgb(66, 36, 199);}
+    75%  {color:green;}
+    100% {color:rgb(255, 0, 55);}
+  }
+  ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: rgb(59, 107, 170);
+    font:20px bold;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer 10-11 */
+    color:  rgb(59, 107, 170);
+  }
+  
+  ::-ms-input-placeholder { /* Microsoft Edge */
+    color:  rgb(59, 107, 170);
+}
+
+/* Main container  */
+
+.container {
+  margin: 0;
+  display: grid;
+  grid-template-areas: "header"
+                        "logo"
+                        "form"
+                        "buffer"
+                        "footer";
+  grid-template-rows: 60px auto 160px 244.33px 95.67px;
+  height: 50vh;
+  min-height: 100%;
+}
+
+/* Header */
+
+.header {
+  grid-area: header;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  font-size: var(--font-size);
+  padding: 0.5em 1.2em;
+}
+
+.header > * > a {
+  margin: var(--header-elements-margin);
+}
+
+.header--left {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header--right {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.header--right > span {
+  margin-right: 1em;
+}
+
+.header--right > span:hover {
+  cursor: pointer;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+}
+
+#Menu {
+  margin: var(--header-elements-margin);
+  width: 22px;
+  height: 22px;
+}
+
+#Sign-in { 
+  background-color: #1a73e8;
+  color: white;
+  font-size: var(--font-size);
+  padding: 0.75em 1.95em;
+  border-radius: 0.3em;
+  border: 0;
+}
+
+#Sign-in:hover {
+  opacity: 0.85;
+  cursor: pointer;
+  box-shadow: 0.5pt 0.5pt 2pt 0.5pt #D3D3D3
+}
+
+/* Logo & Form Section */
+
+.logo {
+  grid-area: logo;
+  text-align: center;
+  margin-top: auto;
+}
+
+#logo {
+  width: 17em;
+}
+
+.form-container {
+  grid-area: form;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: auto;
+  grid-template-rows: auto auto;
+  justify-items: center;
+}
+
+.search {
+  display: flex;
+  margin: 0 auto;
+  height: 45px;
+  border-radius: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px lightgrey solid;
+  justify-content: space-between;
+  align-items: center;
+  width: 570px;
+}
+
+.input-div {
+  width: 100%;
+}
+
+.search:hover {
+  box-shadow: 0 0 5pt 0.5pt #D3D3D3
+}
+
+.search:focus-within {
+  box-shadow: 0 0 5pt 0.5pt #D3D3D3
+}
+
+.search-div {
+  text-align: center;
+  width: 20px;
+  padding-top: 5px;
+}
+
+#search-icon {
+  max-width: 100%;
+}
+
+#search-bar {
+  border: none;
+  outline: none;
+  width: 100%;
+  margin-left: 6px;
+  background-color: transparent;
+}
+
+.mic-div {
+  text-align: center;
+  padding-top: 3px;
+}
+
+#mic-icon {
+  max-width: 65%;
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 15px;
+}
+
+.button {
+  background-color: #f8f9fa;
+  border: 0;
+  font-size: var(--font-size);
+  padding: 10px 18px;
+  margin: 4px;
+  border-radius: 4px;
+}
+
+.button:hover {
+  cursor: pointer;
+  box-shadow: 0 0 1pt 0.5pt #D3D3D3
+}
+
+/* Footer */
+
+.footers {
+  position: relative;
+  width: 100%;
+  bottom: 0;
+  grid-area: footer;
+  display: flex;
+  flex-direction: column;
+  background-color: #f2f2f2;
+}
+
+.footers a, p {
+  color: rgb(116, 116, 116);
+}
+
+
+.footer1 {
+  font-size: 0.9em;
+  height: 47.835px;
+  border-bottom: 1px lightgrey solid;
+}
+
+.footer1 > p {
+  text-align: center;
+}
+
+.footer2 {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 1em;
+}
+
+.footer2--left{
+  flex: 1;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.footer2--center{
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+}
+
+.footer2--right{
+  flex: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer2 a {
+  padding: 14px 14px 10px 14px;
+  font-size: 0.9em;
+}
+
+.footer2 img {
+  margin: 14px -10px 0 14px;
+}
+
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+#leaf {
+  height: 14px;
+}
+
+@media (max-height: 660px) {
+  .container {
+    grid-template-rows: 60px 96px 160px auto 95.67px;
+  }
+}
+
+@media (min-height: 850px) {
+  .container {
+    grid-template-rows: 60px 290px 160px auto 95.67px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .container {
+    /*grid-template-rows: 60px auto 160px 198.33px 141.67px;*/
+	grid-template-rows: 60px auto 160px 55vh 141.67px;
+  }
+
+  .footer2 {
+    display: grid;
+    grid-template-areas:  "footer2--center footer2--center footer2--center footer2--center footer2--center"
+                          ". footer2--left . footer2--right .";
+    grid-template-columns: auto auto auto auto auto;
+    grid-template-rows: auto auto;
+
+  }
+
+  .footer2--left {
+    grid-area: footer2--left;
+  }
+
+  .footer2--center {
+    grid-area: footer2--center;
+  }
+
+  .footer2--right {
+    grid-area: footer2--right;
+  }
+}
+
+@media (max-width: 614px) {
+  .container {
+    grid-template-rows: 60px auto 160px 152.33px 187.67px;
+  }
+
+  .form {
+    width: 100%;
+  }
+
+  .search {
+    width: 100%;
+  }
+
+  .footer2 {
+    grid-template-areas: "footer2--center"
+                          "footer2--left"
+                          "footer2--right";
+    grid-template-columns: auto;
+    grid-auto-rows: auto auto auto;
+    justify-content: space-around;
+  }
+
+  .footer2--center, .footer2--right {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 1200px) and (max-height: 660px) {
+  .container {
+    grid-template-rows: 60px 96px 160px auto 141.67px;
+  }
+}
+
+@media (max-width: 614px) and (max-height: 660px) {
+  .container {
+    grid-template-rows: 60px 96px 160px auto 187.67px;
+  }
+}
+

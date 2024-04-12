@@ -1,78 +1,127 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="./favicon.ico">
+  <link rel="apple-touch-icon" href="./favicon.ico">
+  <title>Image Finder</title>
+  <script>
+    window.addEventListener('invalid', (function () {
+			return function (e) {
+			e.preventDefault();
+			document.getElementById("search-bar").focus();
+			};
+		})(), true);
+  </script>
+
+  <!-- Modal CDN -->
+	<link href= "https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+		rel="stylesheet"
+		integrity= "sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+		crossorigin="anonymous"> 
+	<script src= "https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+		integrity= "sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+		crossorigin="anonymous"> 
+	</script> 
+	<script src= "https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js"
+		integrity= "sha384-oesi62hOLfzrys4LxRF63OJCXdXDipiYWBnvTl9Y9/TRlw5xlKIEHpNyvvDShgf/"
+		crossorigin="anonymous"> 
+	</script>
+  <!-- Modal CDN -->
+
 </head>
 <body>
-	<h1>Eulerity Take-Home Challenge</h1>
 
-	<h2>How it works</h2>
-	<ul>
-		<li>Pressing the submit button on this page will make a POST
-			request to /main</li>
-		<li>That request will contain a form parameter with the url
-			populated in the input box below</li>
-		<li>The ImageFinder servlet will respond to the request with a
-			list of image urls</li>
-		<li>This page contains javascript to send the request and use the
-			response to build a list of images</li>
-	</ul>
-	<h2>Backend Developers</h2>
-	<ul>
-		<li>You can update the ImageFinder servlet to add crawling logic</li>
-		<li>Feel free to add as many classes/packages/files/third party
-			libraries as you'd like</li>
-		<li>We recommend JSoup for parsing web pages</li>
-		<li>You can update this page's html/css/style if you plan on
-			improving the interface</li>
-		<li>Your final submission does not need to contain any of the
-			files included herein</li>
-		<li>This project is just skeleton code so you can hit the ground
-			running.</li>
-		<li>Some ideas:
-			<ul>
-			<li>Crawl not only the given url, but other pages in the same domain</li>
-			<li>Make your crawler multithreaded to speed up response times</li>
-			<li>Be a friendly crawler and try not to hammer a site</li>
-			<li>Think about how to identify different classes of images and do they need special handling</li>
-			<li>Can you identify images as logos? Perhaps collect favicons?</li>
-			<li>Can you mark images that contain people?</li>
-			</ul>
-		</li>
-	</ul>
-	<h2>Important Notes</h2>
-	<p>Congratulations on making it this far into the interview
-		process!</p>
-	<p>
-	This is a free-form hackathon for a very important reason. We wish to see what ideas you can bring to the table.
-	</p>
-	<p><strong>If your submission only contains 5-10 lines of new code, please think twice about submitting it.</strong> If you need more time, you can ask for it.
-	</p>
-	<p>
-	You can use one of the ideas above, but feel free to go off and build something completely different. 
-	The important thing is to submit something that highlights your strengths as a developer.
-	</p>
-	<p>
-	  <b>Remember, this is your chance to show off how you can best contribute to our team.</b>
-	</p>
-	<p>Please remember to think about good design and code style. Comments in your code are great, but thought should also be taken in how to name your variables and method.</p>
+	<div class="container">
 
+		<div class="logo">
+		  <h1 class="hh">Image Finder</h1><br>
+		</div> <!-- End of logo -->
+	
+		<main class="form-container">
+		  <form class="form" autocomplete="off" action="makeApiCall('/main?url=' + urlInput.value, 'POST', null, updateList)">
+			<div class="search">
+			  <div class="search-div">
+				<img id="search-icon" src="./search_bar_magnifying_glass.png" alt="">
+			  </div>
+			  <div class="input-div">
+				<input id="search-bar" autocomplete="off" type="search" name="url" minlength="1" maxlength="64" required title="Search">
+			  </div>
+			  <input type="hidden" name="s" value="0">
+					<input type="hidden" name="pp" value="1">
+			  <input type="hidden" name="lp" value="1">
+					<input type="hidden" name="rp" value="-1">
+			  <!--<div class="mic-div">
+				<img id="mic-icon" src="images/mic.png" alt="">
+			  </div>-->
+			</div> <!-- End of form container-->
+	
+			<div class="buttons">
+			  <button class="button" id="search">Fetch Images</button>
+			</div> <!-- End of buttons-->
+		  </form>
+		</main> <!-- End of main -->
+	
+		<div class="buffer"></div> <!--Buffer-->
+	
+		
+	</div> <!-- End of container -->
 
+	<!-- Modal Starts -->
+	<div class="modal fade" data-target="#icon-image-display" id="icon-image-display" name="icon-image-display" data-keyboard="false" data-backdrop="static"> 
+		<div class="modal-dialog modal-dialog-centered modal-dialog-scrollable"> 
+			<div class="modal-content"> 
+			<div class="modal-header"> 
+				<h5 class="modal-title"> 
+					<div class="btn-group" role="group" aria-label="Basic example">
+						<button type="button" id="icon-image-display-icons-button" class="btn btn-primary" onclick="iconimagedisplay('icons')">Icons</button>
+						<button type="button" id="icon-image-display-images-button" class="btn btn-secondary" onclick="iconimagedisplay('images')">Images</button>
+					</div>
+				</h5> 
+	
+			</div> 
+			<div class="modal-body"> 
+				<ul class="results">
 
-	<div class="content">
-		<div class="input">
-			<form>
-				<input type="text" name="url">
-			</form>
-			<button type="button">Submit!</button>
-		</div>
-		<div class="output">
-			<ul class="results">
-
-			</ul>
-		</div>
+				</ul>
+			</div> 
+			<div class="modal-footer"> 
+				<button type="button"
+						class="btn"
+						data-dismiss="modal"> 
+				Close 
+				</button> 				
+			</div> 
+			</div> 
+		</div> 
 	</div>
+	<!-- End of Modal -->
+
+
 	<script>
-		var resultList = document.querySelector('ul.results');
-		var urlInput = document.querySelector('input[name=url]')
+		var urlInput = document.querySelector('input[name=url]');
+		var ResultImages="";
+
+		iconimagedisplay = function(icons_images){
+			tmpResultImages="";
+			if(icons_images=='icons'){
+				tmpResultImages=ResultImages[0];
+			}else{
+				tmpResultImages=ResultImages[1];
+			}
+			var tmpresultList = document.querySelector('.modal-body .results');
+			tmpresultList.innerHTML = '';
+			for (var i = 0; i < tmpResultImages.length; i++) {
+				var img = document.createElement("img");
+				img.width = 200;
+				img.src = tmpResultImages[i];
+				img.style.padding = "10px";
+				tmpresultList.appendChild(img);
+			}
+		}
 
 		apiCallBack = function(xhr, callback) {
 			if (xhr.readyState == XMLHttpRequest.DONE) {
@@ -91,11 +140,17 @@
 		}
 
 		updateList = function(response) {
+			ResultImages=response;
+			var myModal = new bootstrap.Modal(document.getElementById('icon-image-display'), {keyboard: false, backdrop: 'static'});
+    		myModal.show();
+
+			var resultList = document.querySelector('.modal-body .results');
 			resultList.innerHTML = '';
-			for (var i = 0; i < response.length; i++) {
+			for (var i = 0; i < response[0].length; i++) {
 				var img = document.createElement("img");
 				img.width = 200;
-				img.src = response[i];
+				img.src = response[0][i];
+				img.style.padding = "10px";
 				resultList.appendChild(img);
 			}
 		}
@@ -112,6 +167,8 @@
 			makeApiCall('/main?url=' + urlInput.value, 'POST', null, updateList);
 		});
 	</script>
+
+
 </body>
 
 </html>
